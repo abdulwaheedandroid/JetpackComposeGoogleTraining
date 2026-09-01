@@ -15,6 +15,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.focusModifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -30,11 +32,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetPackComposeGoogleTrainingTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    GreetingImage(
-                        message = stringResource(R.string.happy_birthday_sam),
-                        from = stringResource(R.string.signature_text),
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    TaskManager(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -42,15 +40,42 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun TaskManager(modifier: Modifier = Modifier) {
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.fillMaxSize()
+    ) {
+
+        Image(
+            painter = painterResource(R.drawable.baseline_check_circle_outline_24),
+            contentDescription = null
+        )
+        Text(
+            text = stringResource(R.string.all_tasks_completed),
+        )
+        Text(
+            text = stringResource(R.string.nice_work),
+        )
+    }
+}
+
+@Composable
 fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.ic_launcher_background)
     Box(modifier) {
-        Image(image, contentDescription = null)
+        Image(
+            image, contentDescription = null,
+            contentScale = ContentScale.Crop,
+            alpha = 0.5F
+        )
     }
 
-    GreetingText(message = message, from = from, modifier = Modifier
-        .fillMaxSize()
-        .padding(8.dp))
+    GreetingText(
+        message = message, from = from, modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp)
+    )
 
 }
 
@@ -71,7 +96,7 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
             fontSize = 36.sp,
             modifier = Modifier
                 .padding(16.dp)
-                .align(alignment = Alignment.End)
+                .align(alignment = Alignment.CenterHorizontally)
         )
     }
 }

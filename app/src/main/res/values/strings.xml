@@ -2,4 +2,6 @@
     <string name="app_name">JetPackComposeGoogleTraining</string>
     <string name="happy_birthday_sam">Happy Birthday Sam!</string>
     <string name="signature_text">From Emma</string>
+    <string name="all_tasks_completed">All task completed!</string>
+    <string name="nice_work">Nice Work\n</string>
 </resources>
