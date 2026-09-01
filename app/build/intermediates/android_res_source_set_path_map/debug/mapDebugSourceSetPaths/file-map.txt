@@ -1,0 +1,8 @@
+com.abdulwaheed.jetpackcomposegoogletraining.app-pngs-0 C:\Android\GoogleTraining\JetPackComposeGoogleTraining\app\build\generated\res\pngs\debug
+com.abdulwaheed.jetpackcomposegoogletraining.app-updated_navigation_xml-1 C:\Android\GoogleTraining\JetPackComposeGoogleTraining\app\build\generated\updated_navigation_xml\debug
+com.abdulwaheed.jetpackcomposegoogletraining.app-packageDebugResources-2 C:\Android\GoogleTraining\JetPackComposeGoogleTraining\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.abdulwaheed.jetpackcomposegoogletraining.app-packageDebugResources-3 C:\Android\GoogleTraining\JetPackComposeGoogleTraining\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.abdulwaheed.jetpackcomposegoogletraining.app-debug-4 C:\Android\GoogleTraining\JetPackComposeGoogleTraining\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.abdulwaheed.jetpackcomposegoogletraining.app-debug-5 C:\Android\GoogleTraining\JetPackComposeGoogleTraining\app\src\debug\res
+com.abdulwaheed.jetpackcomposegoogletraining.app-main-6 C:\Android\GoogleTraining\JetPackComposeGoogleTraining\app\src\main\res
+gradleHome-0 C:\Users\Abdul Waheed\.gradle
