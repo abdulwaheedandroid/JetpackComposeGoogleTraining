@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -29,7 +30,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetPackComposeGoogleTrainingTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    GreetingText(
+                    GreetingImage(
                         message = stringResource(R.string.happy_birthday_sam),
                         from = stringResource(R.string.signature_text),
                         modifier = Modifier.padding(innerPadding)
@@ -43,7 +44,13 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.ic_launcher_background)
-    Image(image, contentDescription = null)
+    Box(modifier) {
+        Image(image, contentDescription = null)
+    }
+
+    GreetingText(message = message, from = from, modifier = Modifier
+        .fillMaxSize()
+        .padding(8.dp))
 
 }
 
