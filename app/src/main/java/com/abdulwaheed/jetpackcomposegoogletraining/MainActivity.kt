@@ -33,6 +33,10 @@ class MainActivity : ComponentActivity() {
             JetPackComposeGoogleTrainingTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     TaskManager(modifier = Modifier.padding(innerPadding))
+
+                    val actor = null
+                    print(actor)
+                    print("Supportig message")
                 }
             }
         }
