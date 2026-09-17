@@ -20,25 +20,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun WellnessTaskItem (
+fun WellnessTaskItem(
     taskName: String,
     checked: Boolean,
-    onCheckChanged: (Boolean) -> Unit,
+    onCheckedChange: (Boolean) -> Unit,
     onClose: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-
-    Row (modifier = modifier, verticalAlignment = Alignment.CenterVertically){
+    Row(
+        modifier = modifier, verticalAlignment = Alignment.CenterVertically
+    ) {
         Text(
-            text = taskName,
-            modifier = Modifier.weight(1f).padding(start = 16.dp)
+            modifier = Modifier
+                .weight(1f)
+                .padding(start = 16.dp),
+            text = taskName
         )
-
         Checkbox(
             checked = checked,
-            onCheckedChange = onCheckChanged
+            onCheckedChange = onCheckedChange
         )
-
         IconButton(onClick = onClose) {
             Icon(Icons.Filled.Close, contentDescription = "Close")
         }
@@ -63,15 +64,23 @@ fun WellnessTaskItem(taskName: String,
 @Composable
 fun WellnessTasksList(
     list: List<WellnessTask>,
+    onCheckedTask: (WellnessTask, Boolean) -> Unit,
     onCloseTask: (WellnessTask) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    LazyColumn(modifier = modifier) {
+    LazyColumn(
+        modifier = modifier
+    ) {
         items(
             items = list,
             key = { task -> task.id }
         ) { task ->
-            WellnessTaskItem(taskName = task.label, onClose = { onCloseTask(task) })
+            WellnessTaskItem(
+                taskName = task.label,
+                checked = task.checked,
+                onCheckChanged = { checked -> onCheckedTask(task, checked) },
+                onClose = { onCloseTask(task) }
+            )
         }
     }
 }
