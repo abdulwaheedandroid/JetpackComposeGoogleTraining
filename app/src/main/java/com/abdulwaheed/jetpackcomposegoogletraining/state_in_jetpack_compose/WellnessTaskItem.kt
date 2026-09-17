@@ -2,6 +2,8 @@ package com.abdulwaheed.jetpackcomposegoogletraining.state_in_jetpack_compose
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Checkbox
@@ -44,14 +46,32 @@ fun WellnessTaskItem (
 }
 
 @Composable
-fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier) {
+fun WellnessTaskItem(taskName: String,
+                     onClose: () -> Unit,
+                     modifier: Modifier = Modifier) {
     var checkedState by rememberSaveable { mutableStateOf(false) }
 
     WellnessTaskItem(
         taskName = taskName,
         checked = checkedState,
         onCheckChanged = {newValue -> checkedState = newValue},
-        onClose = {},
+        onClose = onClose,
         modifier = modifier
     )
+}
+
+@Composable
+fun WellnessTasksList(
+    list: List<WellnessTask>,
+    onCloseTask: (WellnessTask) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(modifier = modifier) {
+        items(
+            items = list,
+            key = { task -> task.id }
+        ) { task ->
+            WellnessTaskItem(taskName = task.label, onClose = { onCloseTask(task) })
+        }
+    }
 }
